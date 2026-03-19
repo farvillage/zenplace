@@ -2,11 +2,10 @@ services:
   - type: web
     name: zenplace
     runtime: python
-    rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
     envVars:
       - key: GEMINI_API_KEY
-        sync: false        # you'll paste this manually in Render dashboard
+        sync: false
       - key: DATABASE_URL
-        sync: false        # you'll paste this manually in Render dashboard
+        sync: false
