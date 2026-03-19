@@ -1,0 +1,13 @@
+# Environment variables
+backend/.env
+backend/zenplace.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+
+# macOS
+.DS_Store
