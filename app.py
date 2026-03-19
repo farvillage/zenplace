@@ -165,28 +165,27 @@ def chat():
     save_message(session_id, "user", user_text)
 
     try:
-        history_for_gemini = load_history(session_id)[:-1]
-        chat_session = gemini_client.chats.create(
+        # Load full history including the message we just saved
+        history = load_history(session_id)
+
+        # Call Gemini with the full contents array directly
+        response = gemini_client.models.generate_content(
             model="gemini-2.5-flash",
-            config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
-            history=history_for_gemini,
+            contents=history,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT
+            ),
         )
-        response = chat_session.send_message(user_text)
-        ai_text  = response.text
+        ai_text = response.text
+
     except Exception as exc:
         import traceback
-    print(f"CHAT ERROR: {exc}", flush=True)
-    traceback.print_exc()
-    return jsonify(error=str(exc)), 502
+        traceback.print_exc()
+        print(f"CHAT ERROR: {exc}", flush=True)
+        return jsonify(error=str(exc)), 502
 
     save_message(session_id, "assistant", ai_text)
     return jsonify(reply=ai_text, session_id=session_id)
-
-    print(f"Session: {session_id}, loading history...", flush=True)
-    history_for_gemini = load_history(session_id)
-    print(f"History length: {len(history_for_gemini)}", flush=True)
-    history_for_gemini = history_for_gemini[:-1]
-
 
 @app.get("/api/history")
 def list_sessions():
