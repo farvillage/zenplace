@@ -1,7 +1,18 @@
 # ZenPlace
 
-A virtual wellness space for venting and exploring mindfulness practices.  
-Built with HTML/CSS/JS (frontend) + Python/Flask + SQLite (backend).
+A virtual wellness space where you can vent your feelings to an AI that listens without judgment, and explore mindfulness practices like Zazen, Yoga, Lo-Fi, and ASMR.
+
+---
+
+## Tech stack
+
+| Layer    | Technology |
+|----------|------------|
+| Frontend | HTML, CSS, JavaScript |
+| Backend  | Python + Flask |
+| AI       | Google Gemini 2.5 Flash |
+| Database | PostgreSQL (Supabase) |
+| Hosting  | Render |
 
 ---
 
@@ -9,88 +20,80 @@ Built with HTML/CSS/JS (frontend) + Python/Flask + SQLite (backend).
 
 ```
 zenplace/
-├── index.html          # Main page (hero + chat + practices)
-├── about.html          # About the project + team
-├── style.css           # Unified stylesheet
-├── chat.js             # Frontend chat logic
-│
-└── backend/
-    ├── app.py          # Flask server + SQLite logic
-    ├── requirements.txt
-    ├── .env.example    # Copy to .env and add your API key
-    └── zenplace.db     # Created automatically on first run
+├── index.html        # main page — hero, chat, practices
+├── about.html        # about the project + team
+├── style.css         # all styling
+├── chat.js           # frontend chat logic
+├── app.py            # Flask server + all backend logic
+├── requirements.txt  # Python dependencies
+├── render.yaml       # Render deploy config
+├── .env.example      # template for secret keys
+└── .gitignore
 ```
 
 ---
 
-## Setup
+## Running locally
 
-### 1. Clone / download the project
-
-### 2. Create the `.env` file
-
+**1. Clone the repo**
 ```bash
-cd backend
-cp .env.example .env
+git clone https://github.com/farvillage/zenplace.git
+cd zenplace
 ```
 
-Open `.env` and set your Anthropic API key:
-
-```
-ANTHROPIC_API_KEY=sk-ant-...
-```
-
-### 3. Install Python dependencies
-
+**2. Install dependencies**
 ```bash
-cd backend
 pip install -r requirements.txt
 ```
 
-### 4. Run the server
+**3. Set up your keys**
+```bash
+cp .env.example .env
+```
+Open `.env` and fill in:
+```
+GEMINI_API_KEY=your_key_here
+DATABASE_URL=postgresql://...
+```
 
+- Get a free Gemini key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+- Get a free PostgreSQL database at [supabase.com](https://supabase.com) → Settings → Database → Connection string
+
+**4. Start the server**
 ```bash
 python app.py
 ```
 
-Open your browser at **http://localhost:5000**.
+Open [http://localhost:5000](http://localhost:5000).
+
+---
+
+## Deploying to Render
+
+1. Push the project to GitHub
+2. Go to [render.com](https://render.com) → New → Web Service → connect your repo
+3. Set build command: `pip install -r requirements.txt`
+4. Set start command: `python app.py`
+5. Add environment variables:
+   - `GEMINI_API_KEY`
+   - `DATABASE_URL`
+6. Deploy — you'll get a public URL like `https://zenplace.onrender.com`
+
+> Never share or commit your API keys. If a key gets exposed, revoke it immediately and create a new one.
 
 ---
 
 ## API endpoints
 
-| Method   | Path                        | Description                          |
-|----------|-----------------------------|--------------------------------------|
-| `POST`   | `/api/chat`                 | Send a message, receive AI reply     |
-| `GET`    | `/api/history`              | List all chat sessions               |
-| `GET`    | `/api/history/<session_id>` | Get all messages in a session        |
-| `DELETE` | `/api/history/<session_id>` | Delete a session and its messages    |
-
-### `POST /api/chat` — request body
-
-```json
-{
-  "message": "I've been feeling really anxious lately.",
-  "session_id": null
-}
-```
-
-Pass `null` (or omit `session_id`) to start a new session.  
-Pass the returned `session_id` in subsequent requests to continue the same conversation.
-
-### `POST /api/chat` — response
-
-```json
-{
-  "reply": "I hear you. Can you tell me more about what's been triggering that anxiety?",
-  "session_id": "a3f2b1c4-..."
-}
-```
+| Method | Route | Description |
+|--------|-------|-------------|
+| `POST` | `/api/chat` | Send a message, get AI reply |
+| `GET` | `/api/history` | List all chat sessions |
+| `GET` | `/api/history/<id>` | Get all messages in a session |
+| `DELETE` | `/api/history/<id>` | Delete a session |
 
 ---
 
 ## Important
 
-ZenPlace is a **complementary emotional support tool** and does not replace
-qualified mental health professionals. In a crisis, call or text **988**
-(Suicide & Crisis Lifeline, free, 24/7).
+ZenPlace is a **complementary emotional support tool** and does not replace qualified mental health professionals. In a crisis, call or text **988** (free, 24/7).
