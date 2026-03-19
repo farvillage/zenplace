@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
-FRONTEND_DIR = BASE_DIR
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 GEMINI_KEY   = os.getenv("GEMINI_API_KEY", "")
 DATABASE_URL = os.getenv("DATABASE_URL", "")
 
