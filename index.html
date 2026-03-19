@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenPlace — Your breathing space</title>
+  <link rel="icon" href="zicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#home" class="navbar__brand">Zen<span>Place</span></a>
+    <ul class="navbar__links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#vent">Vent</a></li>
+      <li><a href="#practices">Practices</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Your wellness space</p>
+        <h1 class="hero__title">A place to<br><em>breathe</em> deeply.</h1>
+        <p class="hero__subtitle">
+          Vent to someone who listens without judgment, and explore
+          meditation and relaxation practices to take care of your mind.
+        </p>
+        <a href="#vent" class="hero__cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          I want to vent
+        </a>
+      </div>
+
+      <div class="hero__visual">
+        <div class="category-grid">
+          <a href="#zazen" class="category-card">
+            <span class="category-card__icon">🪷</span>
+            <div class="category-card__title">Zazen</div>
+            <div class="category-card__desc">Seated meditation from Zen Buddhism</div>
+          </a>
+          <a href="#yoga" class="category-card">
+            <span class="category-card__icon">🧘</span>
+            <div class="category-card__title">Yoga</div>
+            <div class="category-card__desc">Union of body, mind and spirit</div>
+          </a>
+          <a href="#lofi" class="category-card">
+            <span class="category-card__icon">🎵</span>
+            <div class="category-card__title">Lo-Fi</div>
+            <div class="category-card__desc">Soft sounds for focus and calm</div>
+          </a>
+          <a href="#asmr" class="category-card">
+            <span class="category-card__icon">🌊</span>
+            <div class="category-card__title">ASMR</div>
+            <div class="category-card__desc">Relaxing sensory stimuli</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CHAT ── -->
+    <section class="chat-section" id="vent">
+      <div class="chat-section__header">
+        <span class="section__tag">Vent</span>
+        <h2 class="section__title">A space just for you</h2>
+        <p class="chat-section__sub">Say what you're feeling. No judgment here.</p>
+      </div>
+
+      <div class="chat-container">
+        <div class="chat-window" id="chatWindow">
+          <div class="empty-state" id="emptyState">
+            <span>🌿</span>
+            Tell me what's going on...
+          </div>
+        </div>
+
+        <div class="input-area">
+          <textarea
+            id="inputQuestion"
+            placeholder="Write what you're feeling and press Enter or click send..."
+            rows="1"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" title="Send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+
+        <p class="disclaimer">
+          ⚠️ This space is a complementary emotional support tool and <strong>does not replace</strong>
+          professional mental health care. In crisis: <strong>988 Suicide & Crisis Lifeline</strong> (call or text 988, free, 24/7).
+        </p>
+      </div>
+    </section>
+
+    <!-- ── PRACTICES ── -->
+    <div class="sections-wrapper" id="practices">
+
+      <section class="section" id="zazen">
+        <span class="section__tag">Meditation</span>
+        <h2 class="section__title">Zazen</h2>
+        <p class="section__intro">
+          The practice of simply sitting — no agenda, no control, just presence.
+        </p>
+        <div class="how-to">
+          <h3>How to practice</h3>
+          <ol>
+            <li>Sit on your knees or in lotus position (full or half)</li>
+            <li>Keep your spine straight and your chin slightly tucked in</li>
+            <li>Lengthen your neck toward the ceiling</li>
+            <li>Let your breath flow naturally without trying to control it</li>
+            <li>Don't try to control your thoughts — let them pass freely</li>
+          </ol>
+        </div>
+        <p class="section__body">
+          Zazen emphasizes self-control, meditation, and the perception of the nature of the mind.
+          Unlike other traditions, it doesn't focus on the study of sutras or worldly achievements —
+          but rather on direct understanding through practice and personal experience.
+          Zen teachings criticize intellectual accumulation and recommend dedication to
+          meditation as a way to experience reality directly.
+        </p>
+        <a href="#home" class="back-top">↑ Back to top</a>
+      </section>
+
+      <section class="section" id="yoga">
+        <span class="section__tag">Movement</span>
+        <h2 class="section__title">Yoga</h2>
+        <p class="section__intro">
+          A 5,000-year-old discipline uniting body, mind, and what surrounds us.
+        </p>
+        <div class="how-to">
+          <h3>How to practice</h3>
+          <ol>
+            <li>Choose a wide, open, and quiet space</li>
+            <li>Pick a time when you can be alone</li>
+            <li>Start with easier poses and progress gradually</li>
+            <li>Wear comfortable clothes that don't restrict movement</li>
+            <li>Use background music to help with focus</li>
+          </ol>
+        </div>
+        <p class="section__body">
+          Yoga originated 5,000 years ago in India as a spiritual discipline. It is defined
+          as any practice aimed at human evolution across all aspects of existence —
+          mental, physical, emotional, and spiritual. At its core, it is the practice of
+          uniting the body and mind with everything around us.
+        </p>
+        <a href="#home" class="back-top">↑ Back to top</a>
+      </section>
+
+      <section class="section" id="lofi">
+        <span class="section__tag">Music</span>
+        <h2 class="section__title">Lo-Fi</h2>
+        <p class="section__intro">
+          Simple, soft, repetitive beats — perfect for relaxing, reading, or studying.
+        </p>
+        <div class="how-to">
+          <h3>How to enjoy it</h3>
+          <ol>
+            <li>Set aside some free time, away from distractions</li>
+            <li>Find a comfortable spot — chair, couch, floor, whatever works</li>
+            <li>Put on headphones if possible</li>
+            <li>Press play and just let the sound wash over you</li>
+          </ol>
+        </div>
+        <p class="section__body">
+          The name comes from "low fidelity," referring to the historically limited sound quality
+          of artists recording on cheap cassette players. Repetitive beats with a jazz feel,
+          almost always without vocals — they pair perfectly with reading and studying
+          without pulling your attention away from what matters.
+        </p>
+        <a href="#home" class="back-top">↑ Back to top</a>
+      </section>
+
+      <section class="section" id="asmr">
+        <span class="section__tag">Sensory</span>
+        <h2 class="section__title">ASMR</h2>
+        <p class="section__intro">
+          Stimuli that trigger deep relaxation — sometimes even sleep.
+        </p>
+        <p class="section__body">
+          ASMR stands for <em>Autonomous Sensory Meridian Response</em>. It refers to pleasurable
+          sensations — usually a tingling or shiver — triggered by visual, auditory, and cognitive
+          stimuli. The relaxation response can be deep enough to induce what some describe as a
+          "brain orgasm," and the experience varies from person to person. There are many types:
+          tapping on objects, whispering, water sounds, crunching food, and much more.
+        </p>
+        <a href="#home" class="back-top">↑ Back to top</a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2023 ZenPlace, Inc. — Made with care.
+  </footer>
+
+  <script src="chat.js"></script>
+</body>
+</html>
